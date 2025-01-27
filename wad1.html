@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page(wad)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Matemasie&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="home page(wad).css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Merriweather+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&family=Rubik:ital,wght@0,300..900;1,300..900&family=Signika:wght@300..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <div class="header-div1">
+        <h1>BOOK SHELF</h1>
+        <img class="img1" src="C:\Users\DELL\Downloads\bs.jpg" alt="bookshelf">
+    </div>
+    <div class="header-div2">
+        <a href="user profile.html"><i class="fa fa-user" aria-hidden="true"></i></a>
+        <input class="srch" type="text" placeholder="seach your accounts">
+    </div>
+</header>
+<nav>
+    <button>Home</button>
+    <a href="order history.html"><button>Order History</button></a>
+    <a href="book catalog1.html"><button>Book catalog</button></a>
+    <a href="sms.html"><button>SMS Subscription</button></a>
+    <a href="contact us.html"><button>contact us</button></a>
+    <a href="faq.html"><button>FAQs</button></a>
+</nav>
+<body>
+<div class="carousel">
+    <input type="radio" name="carousel" id="slide1" checked>
+    <input type="radio" name="carousel" id="slide2">
+    <input type="radio" name="carousel" id="slide3">
+
+    <div class="carousel-inner">
+        <div id="car1" class="carousel-item">
+            <h2>Discover a World of Books</h2>
+            <p>At Book Shelf, we provide a vast selection of genres, from fiction to non-fiction.</p>
+            <a href="book catalog1.html" class="button">Shop Now</a>
+        </div>
+        <div id="car2" class="carousel-item">
+            <h2>Exclusive Offers</h2>
+            <p>Join our newsletter and receive 10% off your first purchase!</p>
+            <a href="#offers" class="button">Get Offer</a>
+        </div>
+        <div id="car3" class="carousel-item">
+            <h2>Join Our Community</h2>
+            <p>Connect with fellow readers, share reviews, and participate in discussions!</p>
+            <a href="#community" class="button">Join Us</a>
+        </div>
+    </div>
+
+    <div class="carousel-controls">
+        <label for="slide1" class="control"></label>
+        <label for="slide2" class="control"></label>
+        <label for="slide3" class="control"></label>
+    </div>
+
+    <div class="carousel-buttons">
+        <a href="login(wad).html"><button>Login</button></a>
+        <a href="registerpage(wad).html"><button>Register</button></a>
+    </div>
+</div>
+<footer>
+    <h1>Our Bestsellers</h1><br>
+    <div class="bookmarq">
+    <marquee scrollamount="10" scrolldelay="5">
+        <div style="display:inline-block; margin-right: 80px;">
+            <img src="C:\Users\DELL\Downloads\atmc habits.jpg" alt="atomic habits" style="display:block; width: 100px; height: 160px;">
+            <p>rating: 4.8</p>
+        </div>
+        <div style="display:inline-block; margin-right: 80px;">
+            <img src="C:\Users\DELL\Downloads\harryp.jpg" alt="harryp" style="display:block; width: 100px; height: 160px;">
+            <p>rating: 4.5</p>
+        </div>
+        <div style="display:inline-block; margin-right: 80px;">
+            <img src="C:\Users\DELL\Downloads\ElonM.jpg" alt="elon" style="display:block; width: 100px; height: 160px;">
+            <p>rating: 4.3</p>
+        </div>
+        <div  style="display:inline-block; margin-right: 80px;">
+            <img src="C:\Users\DELL\Downloads\alchemist.jpg" alt="alchemist" style="display:block; width: 100px; height: 160px;">
+            <p>rating: 4.5</p>
+        </div>
+        <div style="display:inline-block; margin-right: 80px;">
+            <img src="C:\Users\DELL\Downloads\macbeth-149.jpg" alt="mac" style="display:block; width: 100px; height: 160px;">
+            <p>rating: 4.2</p>
+        </div>
+        <div style="display:inline-block; margin-right: 80px;">
+            <img src="C:\Users\DELL\Downloads\charlie.jfif" alt="roald" style="display:block; width: 100px; height: 160px;">
+            <p>rating: 4.3</p>
+        </div>
+    </marquee>
+    </div>
+    <p class="foot">&copy; 2024 Book Shelf. All rights reserved.</p>
+</footer>
+<script>
+let currentSlide = 0;
+const slides = document.querySelectorAll('.carousel input[name="carousel"]');
+const totalSlides = slides.length;
+
+function autoplayCarousel() {
+    slides[currentSlide].checked = false;
+    currentSlide = (currentSlide + 1) % totalSlides;
+    slides[currentSlide].checked = true;
+}
+
+setInterval(autoplayCarousel, 5000);
+
+const searchInput = document.querySelector('.srch');
+searchInput.addEventListener('input', (e) => {
+    const query = e.target.value.toLowerCase();
+    if (query) {
+        alert(`Searching for "${query}" (search functionality needs backend integration)`);
+    }
+});
+
+const navButtons = document.querySelectorAll('nav button');
+navButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+        navButtons.forEach((btn) => btn.classList.remove('active'));
+        button.classList.add('active');
+    });
+});
+
+const marquee = document.querySelector('marquee');
+marquee.addEventListener('mouseover', () => {
+    marquee.stop();
+});
+marquee.addEventListener('mouseout', () => {
+    marquee.start();
+});
+
+const carousel = document.querySelector('.carousel');
+const carouselControls = document.querySelector('.carousel-controls');
+
+carousel.addEventListener('mouseover', () => {
+    carouselControls.style.opacity = 1;
+});
+carousel.addEventListener('mouseout', () => {
+    carouselControls.style.opacity = 0;
+});
+const loginButton = document.querySelector('a[href="login(wad).html"] button');
+const registerButton = document.querySelector('a[href="registerpage(wad).html"] button');
+
+loginButton.addEventListener('click', () => {
+    alert('Redirecting to Login Page');
+});
+
+registerButton.addEventListener('click', () => {
+    alert('Redirecting to Register Page');
+});
+
+</script>
+</body>
+</html> 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Contact Us | Book Sales System</title>
+    <link rel="stylesheet" href="contact us.css">
+</head>
+<body>
+    <div class="contact-container">
+        <h1 style="display: inline; margin-left: 250px;">Contact Us</h1>
+        <img class="img1" src="C:\Users\DELL\Downloads\bs.jpg" alt="bookshelf">
+        <p>If you have any questions or concerns about book availability or new arrivals, feel free to contact us using the form below:</p>
+
+        <div class="contact-info">
+            <h3>Our Contact Information</h3>
+            <p>Email: support@booksales.com</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 Book St, Library City, BK 10101</p>
+        </div>
+
+        <form class="contact-form" action="submit_form.php" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="cartstyle.css">
+    <title>Cart - Online Book Store</title>
+</head>
+<body>
+    <header>
+        <h1 style="display: inline;">Your Shopping Cart</h1>
+        <img class="img1" src="C:\Users\DELL\Downloads\bs.jpg" alt="bookshelf">
+        <nav>
+            <button onclick="location.href='wad1.html'">Home</button>
+            <button onclick="location.href='checkout.html'">Proceed to Checkout</button>
+        </nav>
+    </header>
+
+    <main>
+        <section class="cart-section">
+            <table class="cart-table">
+                <thead>
+                    <tr>
+                        <th>Quantity</th>
+                        <th>Book Details</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input id="book1" onchange="Summary()" type="number" value="1" min="1">
+                        </td>
+                        <td>
+                            <p><strong>The Alchemist</strong></p>
+                            <p>Author: Paulo Coelho</p>
+                            <p>Genre: Fiction</p>
+                        </td>
+                        <td id="cost1">$10.99</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="book2" onchange="Summary()" type="number" value="2" min="1">
+                        </td>
+                        <td>
+                            <p><strong>Rich Dad Poor Dad</strong></p>
+                            <p>Author: Robert Kiyosaki</p>
+                            <p>Genre: Non-Fiction</p>
+                        </td>
+                        <td id="cost2">$15.99</td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input id="book3" onchange="Summary()" type="number" value="1" min="1">
+                        </td>
+                        <td>
+                            <p><strong>Harry Potter and the Sorcerer's Stone</strong></p>
+                            <p>Author: J.K. Rowling</p>
+                            <p>Genre: Fantasy</p>
+                        </td>
+                        <td id="cost3">$12.99</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="order-summary">
+                <h2>Order Summary</h2>
+                <p id="subtotal"><strong>Subtotal:</strong> $39.97</p>
+                <p><strong>Shipping:</strong> $5.00</p>
+                <p id="ttl"><strong>Total:</strong> $44.97</p>
+                <button class="checkout-button">Checkout</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Book Shelf. All rights reserved.</p>
+    </footer>
+    <script>
+        function Summary(){
+            let c1= parseInt(document.getElementById("book1").value);
+            let c2=parseInt(document.getElementById("book2").value);
+            let c3=parseInt(document.getElementById("book3").value);
+
+            const price1 = 10.99;
+            const price2 = 15.99;
+            const price3 = 12.99;
+
+            let cost1 = price1 * c1;
+            let cost2 = price2 * c2;
+            let cost3 = price3 * c3;
+
+            document.getElementById("cost1").innerHTML = "$" + cost1.toFixed(2);
+            document.getElementById("cost2").innerHTML = "$" + cost2.toFixed(2);
+            document.getElementById("cost3").innerHTML = "$" + cost3.toFixed(2);
+            let subtotal = cost1 + cost2 + cost3;
+            document.getElementById("subtotal").innerHTML = "<strong>Subtotal:</strong> $" + subtotal.toFixed(2);
+            let total = subtotal + 5.00; 
+            document.getElementById("ttl").innerHTML = "<strong>Total:</strong> $" + total.toFixed(2);
+        }
+        window.onload = Summary;
+    </script>
+</body>
+</html>

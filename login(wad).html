@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login(wad).css">
+    <link rel="stylesheet" href="bootstrap/bootstrap-5.2.0/css/bootstrap.min.css">
+    <title>Login</title>
+    <style>
+        .wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .container.main {
+            display: flex;
+            flex-wrap: wrap;
+            width: 900px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .side-image {
+            background: url('C:/Users/DELL/Downloads/lib.jpg') no-repeat center center;
+            background-size: cover;
+            flex: 1;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .side-image .text {
+            position: absolute;
+            color: white;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+        .right {
+            flex: 1;
+            padding: 40px;
+        }
+        .input-box {
+            max-width: 300px;
+            margin: auto;
+        }
+        header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .input-field {
+            margin-bottom: 20px;
+        }
+        .input-field .input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .input-field label {
+            font-size: 14px;
+            color: #666;
+        }
+        .input-field .submit {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            border: none;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        .input-field .submit:hover {
+            background: #0056b3;
+        }
+        .Signin {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .Signin a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        .Signin a:hover {
+            text-decoration: underline;
+        }
+        .img1{
+            width: 70px;
+            height:60px;
+            border-radius: 75px;
+        }
+        .header-flex {
+        display: flex;
+        align-items: center; 
+        gap: 15px; 
+        }
+
+    .header-flex h1 {
+        font-size: 24px; 
+        margin: 0; 
+    }
+
+    .header-flex img {
+        width: 50px; 
+        height: auto;
+    }
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container main">
+            <div class="col-md-6 side-image">
+            </div>
+            <div class="col-md-8 right">
+                <div class="input-box">
+                    <header class="header-flex">
+                        <h1><strong>BOOK SHELF</strong></h1>
+                        <img class="img1" src="C:\Users\DELL\Downloads\bs.jpg" alt="bookshelf"> 
+                    </header>
+                    <h2>Account Login</h2>
+                    <div class="input-field">
+                        <input type="text" class="input" id="email" required autocomplete="off" placeholder="Email"><br>
+                    </div>
+                    <div class="input-field">
+                        <input type="password" class="input" id="password" required autocomplete="off" placeholder="Password"><br>
+                    </div>
+                    <div class="input-field">
+                        <input type="submit" class="submit" value="Sign In">
+                    </div>
+                    <div class="Signin">
+                        <span>Don't have an account? <a href="registerpage(wad).html">Sign up here</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.querySelector('.submit').addEventListener('click', (e) => {
+            e.preventDefault();
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            if (!validateEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+            if (!password) {
+                alert('Please enter your password.');
+                return;
+            }
+            login(email, password);
+        });
+
+        function validateEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function login(email, password) {
+            const users = [
+                { email: 'user1@example.com', password: 'password123' },
+                { email: 'user2@example.com', password: 'mypassword' },
+            ];
+            const user = users.find((user) => user.email === email && user.password === password);
+
+            if (user) {
+                alert('Login successful!');
+                window.location.href = 'home page(wad).html'; 
+            } else {
+                alert('Invalid email or password. Please try again.');
+            }
+        }
+        document.querySelector('.submit').addEventListener('click', (e) => {
+    e.preventDefault();
+    // Send login data to the PHP backend
+    fetch('login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`,
+    })
+        .then((response) => response.json())
+        .then((data) => {
+            if (data.success) {
+                alert(data.message);
+                window.location.href = 'home page(wad).html';
+            } else {
+                alert(data.message);
+            }
+        })
+        .catch((error) => console.error('Error:', error));
+});
+
+    </script>
+</body>
+</html>

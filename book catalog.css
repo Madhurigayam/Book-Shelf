@@ -1,0 +1,125 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #35424a;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 300px;
+    margin-bottom: 20px;
+}
+
+.header-buttons {
+    margin-top: 10px;
+    display: inline;
+}
+
+button {
+    background-color: #e8496b;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #d73856;
+}
+
+nav {
+    background-color: #e8496b;
+    padding: 10px;
+    text-align: center;
+}
+
+nav button {
+    margin: 0 5px;
+}
+
+main {
+    display: flex;
+    padding: 20px;
+}
+
+.filters {
+    flex: 1;
+    padding: 20px;
+    background-color: #ffffff;
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.filters h2 {
+    margin-top: 0;
+}
+
+select {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+}
+
+h1{
+    display: inline;
+}
+
+.head{
+    margin-bottom: 20px;
+}
+
+.book-list {
+    flex: 2;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.book-item {
+    padding: 10px;
+    border: 1px solid #e8496b;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.book-item img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.book-item h3 {
+    margin: 10px 0 5px;
+}
+
+.book-item p {
+    margin: 0;
+    color: #666;
+}
+
+.book-item button {
+    background-color: #4CAF50;
+}
+
+.book-item button:hover {
+    background-color: #45a049;
+}
+.img1{
+    width: 70px;
+    height:60px;
+    border-radius: 75px;
+  }
+

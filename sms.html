@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="smsstyle.css">
+    <title>SMS Subscription</title>
+</head>
+<body>
+    <header>
+        <div style="display:inline;">
+        <h1>Book SMS Subscription</h1>
+        <img class="img1" src="C:\Users\DELL\Downloads\bs.jpg" alt="bookshelf">
+        </div>
+        <nav>
+            <button onclick="location.href='wad1.html'">Home</button>
+        </nav>
+    </header>
+
+    <main>
+        <form class="subscription-form">
+            <label for="username">User Name:</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="mobile">Mobile Number:</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="+1 (555) 555-5555" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Select Category</option>
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <option value="children">Children's Books</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+            </select>
+
+            <label for="genre">Genre:</label>
+            <select id="genre" name="genre" required>
+                <option value="">Select Genre</option>
+                <option value="mystery">Mystery</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="biography">Biography</option>
+                <option value="thriller">Thriller</option>
+                <option value="romance">Romance</option>
+            </select>
+
+            <label for="desired-book">Desired Book Name:</label>
+            <input type="text" id="desired-book" name="desired-book" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </main>
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+    const form = document.querySelector(".subscription-form");
+
+    form.addEventListener("submit", (event) => {
+        event.preventDefault(); 
+        const username = document.getElementById("username").value.trim();
+        const mobile = document.getElementById("mobile").value.trim();
+        const category = document.getElementById("category").value;
+        const genre = document.getElementById("genre").value;
+        const desiredBook = document.getElementById("desired-book").value.trim();
+        const mobileRegex = /^\+?[0-9\s()-]{10,15}$/;
+        if (!mobileRegex.test(mobile)) {
+            alert("Please enter a valid mobile number (e.g., +1 (555) 555-5555).");
+            return;
+        }
+        if (!username || !mobile || !category || !genre || !desiredBook) {
+            alert("Please fill in all required fields.");
+            return;
+        }
+        alert(`Subscription successful!\n
+            User: ${username}\n
+            Mobile: ${mobile}\n
+            Category: ${category}\n
+            Genre: ${genre}\n
+            Desired Book: ${desiredBook}`);
+        form.reset();
+    });
+});
+</script>
+</html>

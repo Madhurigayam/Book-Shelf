@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="order history.css">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <title>Ordered Books</title>
+</head>
+<body>
+    <header>
+        <div class="head">
+        <h1>ORDERED BOOKS</h1>
+        <img class="img1" src="C:\Users\DELL\Downloads\bs.jpg" alt="bookshelf">
+        </div>
+        <a href="wad1.html" class="home-link">
+            <i class="bx bx-home">Home</i>
+        </a>
+    </header>
+    <div class="container">
+        <table class="styled-table">
+            <thead>
+                <tr>
+                    <th>S.No</th>
+                    <th>Book Title</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Purchase Date</th>
+                    <th>Quantity</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>01</td>
+                    <td>The Great Gatsby</td>
+                    <td>F. Scott Fitzgerald</td>
+                    <td>$10.99</td>
+                    <td>2024-01-15</td>
+                    <td>05</td>
+                    <td>
+                        <button class="btn reorder">Reorder</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>02</td>
+                    <td>Lord of the Flies</td>
+                    <td>William Golding</td>
+                    <td>$8.99</td>
+                    <td>2024-02-20</td>
+                    <td>02</td>
+                    <td>
+                        <button class="btn reorder">Reorder</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>03</td>
+                    <td>To Kill a Mockingbird</td>
+                    <td>Harper Lee</td>
+                    <td>$12.99</td>
+                    <td>2024-03-10</td>
+                    <td>03</td>
+                    <td>
+                        <button class="btn reorder">Reorder</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>04</td>
+                    <td>Pride and Prejudice</td>
+                    <td>Jane Austen</td>
+                    <td>$9.99</td>
+                    <td>2024-04-05</td>
+                    <td>04</td>
+                    <td>
+                        <button class="btn reorder">Reorder</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>05</td>
+                    <td>The Catcher in the Rye</td>
+                    <td>J.D. Salinger</td>
+                    <td>$11.99</td>
+                    <td>2024-05-15</td>
+                    <td>01</td>
+                    <td>
+                        <button class="btn reorder">Reorder</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        function showSuccessMessage(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.innerHTML = `
+                <span class="success-icon">✔</span>
+                <span>${message}</span>
+                <p>Thank you for reordering!</p>
+            `;
+            document.body.appendChild(successDiv);
+            setTimeout(() => {
+                successDiv.remove();
+            }, 3000);
+        }
+        const reorderButtons = document.querySelectorAll('.btn.reorder');
+        reorderButtons.forEach((button, index) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                const confirmReorder = confirm(`Do you want to reorder book #${index + 1}?`);
+                if (confirmReorder) {
+                    showSuccessMessage(`Book #${index + 1} reordered successfully!`);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

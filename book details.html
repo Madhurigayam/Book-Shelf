@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details</title>
+    <link rel="stylesheet" href="book details.css">
+    <style>
+        .popup-message {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 18px;
+            z-index: 1000;
+        }
+
+        .popup-message.show {
+            display: block;
+        }
+
+        .popup-message button {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e8496b;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .popup-message button:hover {
+            background-color: #d73856;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="book-details-container">
+        <div class="book-info">
+            <img src="C:\Users\DELL\Downloads\alchemist.jpg" alt="Book Cover" class="book-cover">
+            <div class="book-details">
+                <h1>The Alchemist</h1>
+                <p><strong>Author:</strong> Paulo Coelho</p>
+                <p><strong>Price:</strong> $12.99</p>
+                <p><strong>Genre:</strong> Fiction, Adventure</p>
+                <p class="description">
+                    A fable about following your dream, "The Alchemist" tells the story of a young shepherd named Santiago who travels from his homeland in Spain to the Egyptian desert in search of a treasure buried in the Pyramids.
+                </p>
+                <button class="add-to-cart-btn" onclick="addToCart()">Add to Cart</button>
+            </div>
+        </div>
+        <div class="reviews-section">
+            <h2>User Reviews</h2>
+            <div class="review">
+                <p><strong>John Doe:</strong> This is one of the most inspiring books I've ever read. A must-read for everyone.</p>
+            </div>
+            <div class="review">
+                <p><strong>Jane Smith:</strong> Beautifully written with a powerful message. I highly recommend it!</p>
+            </div>
+            <div class="review">
+                <p><strong>Mike Johnson:</strong> Amazing story about the importance of following your dreams.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="popupMessage" class="popup-message">
+        <p>The Book has been added to your cart!</p>
+        <button onclick="closePopup()">OK</button>
+    </div>
+    <script>
+        function addToCart() {
+            const popup = document.getElementById("popupMessage");
+            popup.classList.add("show");  
+        }
+        function closePopup() {
+            const popup = document.getElementById("popupMessage");
+            popup.classList.remove("show"); 
+        }
+    </script>
+</body>
+</html>

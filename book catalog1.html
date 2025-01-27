@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="book catalog.css">
+    <title>Book catalog</title>
+</head>
+<body>
+    <header>
+        <input type="text" placeholder="Search for books...">
+        <div class="head">
+        <h1>BOOK SHELF</h1>
+        <img class="img1" src="C:\Users\DELL\Downloads\bs.jpg" alt="bookshelf">
+        </div>
+        <div class="header-buttons"> 
+            <button>Free Delivery</button>
+            <a href="cart.html"><button>Cart</button></a>
+        </div>
+        <a href="wad1.html"><button>HOME</button></a>
+    </header>
+    
+    <nav>
+        <label>BOOK CATEGORIES</label>
+        <button>Text Books</button>
+        <button>Audio Books</button>
+        <button>Magazines</button>
+        <button>Games</button>
+    </nav>
+
+    <main>
+        <section class="filters">
+            <h2>Filter by Category</h2>
+            <select id="category">
+                <option value="">Select Category</option>
+                <option value="fiction">Fiction</option>
+                <option value="non-fiction">Non-Fiction</option>
+                <option value="children">Children's Books</option>
+                <option value="science">Science</option>
+                <option value="history">History</option>
+            </select>
+
+            <h2>Filter by Genre</h2>
+            <select id="genre">
+                <option value="">Select Genre</option>
+                <option value="mystery">Mystery</option>
+                <option value="fantasy">Fantasy</option>
+                <option value="biography">Biography</option>
+                <option value="thriller">Thriller</option>
+                <option value="romance">Romance</option>
+            </select>
+        </section>
+
+        <section class="book-list">
+            <h2>Available Books</h2>
+            <div class="book-item">
+                <img src="file:///C:/Users/DELL/Downloads/alchemist.jpg" alt="The Alchemist">
+                <h3>ALCHEMIST</h3>
+                <p>Rating: ★★★★☆</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="book-item">
+                <img src="file:///C:/Users/DELL/Downloads/ElonM.jpg" alt="Elon musk">
+                <h3>ELON MUSK</h3>
+                <p>Rating: ★★★★★</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="book-item">
+                <img src="C:\Users\DELL\Pictures\rich dad poor dad.jpg" alt="richdadpoordad">
+                <h3>RICH DAD POOR DAD</h3>
+                <p>Rating: ★★★☆☆</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="book-item">
+                <img src="file:///C:/Users/DELL/Downloads/charlie.jfif" alt="Charlie and the Chocolate Factory">
+                <h3>CHARLIE AND THE CHOCOLATE FACTORY</h3>
+                <p>Rating: ★★★★☆</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="book-item">
+                <img src="file:///C:/Users/DELL/Downloads/macbeth-149.jpg" alt="mac beth">
+                <h3>MAC BETH</h3>
+                <p>Rating: ★★★★★</p>
+                <button>Buy Now</button>
+            </div>
+            <div class="book-item">
+                <img src="file:///C:/Users/DELL/Downloads/harryp.jpg" alt="Harry Potter">
+                <h3>HARRY POTTER</h3>
+                <p>Rating: ★★★★★</p>
+                <button>Buy Now</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+    const categorySelect = document.getElementById("category");
+    const genreSelect = document.getElementById("genre");
+    const bookItems = document.querySelectorAll(".book-item");
+    const buyNowButtons = document.querySelectorAll(".book-item button");
+
+    function filterBooks() {
+        const selectedCategory = categorySelect.value.toLowerCase();
+        const selectedGenre = genreSelect.value.toLowerCase();
+
+        bookItems.forEach(item => {
+            const bookCategory = item.dataset.category ? item.dataset.category.toLowerCase() : "";
+            const bookGenre = item.dataset.genre ? item.dataset.genre.toLowerCase() : "";
+
+            if (
+                (selectedCategory && bookCategory !== selectedCategory) ||
+                (selectedGenre && bookGenre !== selectedGenre)
+            ) {
+                item.style.display = "none";
+            } else {
+                item.style.display = "block";
+            }
+        });
+    }
+
+    function handleBuyNowClick(event) {
+        // Navigate to the book details page
+        window.location.href = "book details.html";
+    }
+
+    categorySelect.addEventListener("change", filterBooks);
+    genreSelect.addEventListener("change", filterBooks);
+
+    // Attach click event listeners to all "Buy Now" buttons
+    buyNowButtons.forEach(button => {
+        button.addEventListener("click", handleBuyNowClick);
+    });
+
+    // Initial filtering
+    filterBooks();
+});
+
+    </script>
+</body>
+</html>
